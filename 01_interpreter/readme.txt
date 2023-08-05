@@ -4,9 +4,9 @@
 2.创建解释器脚本
 
 过程:
-1.编辑保存echoarg.c文件,并调用(g++ echoarg.c -Iinclude echoarg)进行编译.
+1.编辑保存echoarg.c文件,并调用(g++ echoarg.c -Iinclude -o echoarg)进行编译.
 2.保存testinterp.sh文件,并更改该文件的执行权限.
-3.编辑保存main_file.c文件,并调用(g++ main_file.c -Iinclude main_file)进行编译.
+3.编辑保存main_file.c文件,并调用(g++ main_file.c -Iinclude -o main_file)进行编译.
 4.执行脚本(./main_file 或者 ./main_file > 123.txt)
 
 注意事项：
