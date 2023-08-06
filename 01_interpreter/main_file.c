@@ -11,7 +11,7 @@ int main(void){
         // 且执行解释器文件时,该函数的第二个参数,也就是arg[0]不执行
         if(execl("/home/pi/work/learn/01_interpreter/testinterp.sh", 
         // if(execl("/home/pi/work/learn/01_interpreter/echoarg", 
-        "testinterp", "myarg1", "MY ARG2", (char*)0) < 0){
+        "testinterp01", "myarg1", "MY ARG2", (char*)0) < 0){
             printf("execl error \n");
         }
     }
