@@ -5,7 +5,7 @@ void daemonize(const char* cmd){
     int                     i, fd0, fd1, fd2;
     pid_t                   pid;
     struct rlimit           rl;
-    // struct sigaction        sa;
+    struct sigaction        sa;
 
     // 清除进程的 umask 以确保当守护进程创建文件和目录时拥有所需的权限。
     umask(0);
@@ -32,6 +32,14 @@ void daemonize(const char* cmd){
         exit(1);
     }
 
+    // 暂时不太明白
+    sa.sa_handler = SIG_IGN;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    if (sigaction(SIGHUP, &sa, NULL) < 0) {
+        // printf("%s: can't ignore SIGHUB \n", cmd);
+        exit(1);
+    }
     // 再次创建子进程，确保未来该会话不会分配控制终端。只有会话的leader才有权限分配控制终端
     if((pid = fork()) < 0){
         // printf("%s: can't fork \n", cmd);
